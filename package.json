@@ -2,16 +2,15 @@
   "name": "react-diy-cursor",
   "version": "1.0.0",
   "description": "react-diy-cursor is a customizable React library that allows you to create and apply unique cursor designs for your web applications.",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
+  "exclude": [
+    "node_modules"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
@@ -36,14 +35,12 @@
   },
   "homepage": "https://github.com/psychlone77/react-diy-cursor#readme",
   "devDependencies": {
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "typescript": "^5.5.3"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^16.8.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
