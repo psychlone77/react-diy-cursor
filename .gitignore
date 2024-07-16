@@ -39,6 +39,8 @@ bower_components
 build/Release
 
 # Dependency directories
+/test-app/node_modules/
+/test-app/build/
 node_modules/
 jspm_packages/
 
