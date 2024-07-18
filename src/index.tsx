@@ -1,10 +1,11 @@
-import React, { useState, useEffect, ReactNode } from "react";
+import React, { useState, useEffect, ReactNode, CSSProperties } from "react";
 
 type CustomCursorProps = {
   children?: ReactNode; // Define children prop type
+  customStyles?:CSSProperties; // Define customStyles prop type
 };
 
-const CustomCursor = (props: CustomCursorProps): JSX.Element => {
+const CustomCursor = ( { children, customStyles }:CustomCursorProps): JSX.Element => {
   // State to store cursor position
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -21,7 +22,7 @@ const CustomCursor = (props: CustomCursorProps): JSX.Element => {
   }, []);
 
   // Inline styles for the custom cursor
-  const cursorStyles = {
+  const defaultCursorStyles: CSSProperties = {
     cursor: "none",
     position: "fixed",
     left: `${cursorPosition.x}px`,
@@ -29,11 +30,15 @@ const CustomCursor = (props: CustomCursorProps): JSX.Element => {
     transform: "translate(-50%, -50%)", // Center the cursor
     pointerEvents: "none",
     mixBlendMode: "difference", // Blend with background
+    color: "white",
   };
+
+  // Merge default styles with custom styles
+  const cursorStyles = { ...defaultCursorStyles, ...customStyles };
 
   return (
     <div style={cursorStyles}>
-      {props.children} {/* Render children passed to CustomCursor */}
+      {children} {/* Render children passed to CustomCursor */}
     </div>
   );
 };
