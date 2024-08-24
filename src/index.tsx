@@ -17,7 +17,7 @@ const CustomCursor = ( { children, customStyles }:CustomCursorProps): JSX.Elemen
 
     window.addEventListener("mousemove", updateCursorPosition);
 
-    // Cleanup function to remove event listener
+    // Cleanup function to remove event listener when component unmounts
     return () => window.removeEventListener("mousemove", updateCursorPosition);
   }, []);
 
@@ -29,8 +29,6 @@ const CustomCursor = ( { children, customStyles }:CustomCursorProps): JSX.Elemen
     top: `${cursorPosition.y}px`,
     transform: "translate(-50%, -50%)", // Center the cursor
     pointerEvents: "none",
-    mixBlendMode: "difference", // Blend with background
-    color: "white",
   };
 
   // Merge default styles with custom styles
