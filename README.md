@@ -52,9 +52,9 @@
 
 ```bash
 npm run build
+```
 
-<br/>
----
+
 
 ### 📚 **User Guide:** _Coming Soon!_
 - Detailed instructions on how to integrate and customize `react-diy-cursor` in your projects.
