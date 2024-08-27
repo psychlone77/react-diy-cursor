@@ -30,25 +30,23 @@
 
 ---
 
-## 📚 User Guide & Setup
- ### **Setup Instructions:
+## 📚 User Guide to Setup
+ ### Setup Instructions:
   - Step-by-step setup guide for installing and configuring `react-diy-cursor` in your React application.
-
-  # React DIY Cursor Package
 
 ## Installation and Setup
 
   To use the React-DIY-Cursor package in your project, follow the steps below:
 
- 1. Download the Source Code
+ 1. **Download the Source Code**
 
     - First, clone or download the source code of the React-DIY-Cursor package to your local machine.
 
- 2. Open the Project in a Code Editor
+ 2. **Open the Project in a Code Editor**
 
     - Open the downloaded React-DIY-Cursor package in your preferred code editor, such as VSCode.
 
- 3. Build the Package
+ 3. **Build the Package**
 
     - In your code editor, open the terminal and compile the package by running the build script. This will create the necessary files in the `dist` or `lib` folder, depending on the package setup.
 
@@ -59,43 +57,36 @@
 ---
 <br/>
 
-## 📚 User Guide:
+## 📚 User Guide to integrate in your project
 - Detailed instructions on how to integrate and customize `react-diy-cursor` in your projects.
 
 
 ### Steps to Integrate `react-diy-cursor`
 
-1. 📂 **Open Your Project**
+1. **Open Your Project**
    - Open the project where you want to use the DIY cursor in your code editor.
 
-2. ➕ **Add Dependency**
-   - In the `package.json` file of this project, add a dependency pointing to the local path of your DIY cursor package. For example:
+2. **Install the Package**
+    - Open the terminal in your code editor and run the following command to install the local package and it will update the dependencies in both package.json and package-lock.json.
 
-   ```json
-   "dependencies": {
-     "react-diy-cursor": "file:../path/to/react-diy-cursor"
-   }
-   ```
-
+    ```bash
+    npm install ../react-diy-cursor
+    ```
 
     **Note**: The path should be relative to the location of your current project.
 
-3. 🔄 **Update package-lock.json**
-    - After editing the package.json file, open the terminal in your     code editor and run the following command to install the local   package and update the lock file:
-
-    ```npm install ../react-diy-cursor```
-
-    **Note**: The path should be relative to the location of your current project.
-
-3. 📥 **Import the Package in Your Project**
+3. **Import the Package in Your Project**
     - In the React component or file where you want to use the DIY cursor, import the package at the top of the file:
 
-    javascript
-    ```import CustomCursor from 'react-diy-cursor';```
+    ```javascript
+    import CustomCursor from 'react-diy-cursor';
+    ```
 
-4. 🚀 **Compile Your Project**
+4. **Compile Your Project**
     - Finally, compile and run your project to see the DIY cursor in action:
 
-    ```npm start```
+    ```bash
+    npm start
+    ```
 
 This guide should help you smoothly install and integrate the React-DIY-Cursor package into your project. Happy coding! 🎉
