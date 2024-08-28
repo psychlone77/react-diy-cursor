@@ -3,14 +3,14 @@
 `react-diy-cursor` is a customizable React library that lets you create and apply unique, dynamic cursor designs to your web applications. Elevate your UI with interactive and visually appealing cursors!
 
 ## 🚀 Main Features
+  
+- [x] 🚫 **Disabling Cursor on Window Exit**
+  - Automatically hide the cursor (the mouse component) when it leaves the browser window.
 
 - [ ] 🎡 **Custom Cursor with Rotation and Scaling**
   - **Rotation:** Rotate the cursor based on its movement direction.
   - **Scaling:** Adjust cursor size depending on the speed of movement.
   - **Customization:** Enable or disable rotation and scaling through settings.
-  
-- [ ] 🚫 **Disabling Cursor on Window Exit**
-  - Automatically hide the cursor (the mouse component) when it leaves the browser window.
 
 - [ ] 📱 **Mobile Device Detection and Interaction Disabling**
   - **User Agent Detection:** Detect mobile devices and disable custom cursor features.
@@ -31,10 +31,9 @@
 ---
 
 ## 📚 User Guide to Setup
- ### Setup Instructions:
-  - Step-by-step setup guide for installing and configuring `react-diy-cursor` in your React application.
 
 ## Installation and Setup
+### Local Installation
 
   To use the React-DIY-Cursor package in your project, follow the steps below:
 
@@ -42,9 +41,9 @@
 
     - First, clone or download the source code of the React-DIY-Cursor package to your local machine.
 
- 2. **Open the Project in a Code Editor**
+ 2. **Open the Project in a Terminal**
 
-    - Open the downloaded React-DIY-Cursor package in your preferred code editor, such as VSCode.
+    - Navigate to the `react-diy-cursor` folder in your terminal
 
  3. **Build the Package**
 
@@ -53,7 +52,10 @@
       ```bash
       npm run build
       ```
+### `npm` Installation
 
+ *Coming Soon*
+ 
 ---
 <br/>
 
@@ -89,4 +91,3 @@
     npm start
     ```
 
-This guide should help you smoothly install and integrate the React-DIY-Cursor package into your project. Happy coding! 🎉
