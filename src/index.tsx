@@ -9,7 +9,7 @@ const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Elemen
     // State to store cursor position
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     // State to store cursor visibility
-    const [isCursorVisible, setIsCursorVisible] = useState(true);
+    const [isCursorVisible, setIsCursorVisible] = useState(false);
 
     // Effect to add mouse move event listener
     useEffect(() => {
