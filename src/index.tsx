@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ReactNode, CSSProperties } from "react";
+import useMouseSpeed from "./hooks/mouseSpeed";
 
 type CustomCursorProps = {
     children?: ReactNode; // Define children prop type
@@ -10,12 +11,10 @@ const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Elemen
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     // State to store cursor visibility
     const [isCursorVisible, setIsCursorVisible] = useState(true);
-
-    // Effect to add mouse move event listener
     useEffect(() => {
         const updateCursorPosition = (e: MouseEvent) => {
             setCursorPosition({ x: e.clientX, y: e.clientY });
-        };
+        }
         const handleMouseOut = (e: MouseEvent) => {
             if (!e.relatedTarget) {
                 setIsCursorVisible(false);
@@ -27,6 +26,7 @@ const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Elemen
         window.addEventListener("mousemove", updateCursorPosition);
         document.addEventListener("mouseout", handleMouseOut);
         document.addEventListener("mouseover", handleMouseEnter);
+
         // Cleanup function to remove event listener when component unmounts
         return () => {
             window.removeEventListener("mousemove", updateCursorPosition);
@@ -56,4 +56,4 @@ const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Elemen
     );
 };
 
-export default CustomCursor;
+export {CustomCursor, useMouseSpeed};
