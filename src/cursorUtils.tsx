@@ -16,23 +16,23 @@ export const handleMouseMove = (mouse: { x: number; y: number }) => (event: Mous
 
 export const tick = (
     cursor: HTMLElement,
-    mouse: { x: number; y: number },
-    previousMouse: { x: number; y: number },
-    circle: { x: number; y: number },
+    curMousePosition: { x: number; y: number },
+    prevMousePosition: { x: number; y: number },
+    cursorPosition: { x: number; y: number },
     currentScale: number,
     currentAngle: number,
     speed: number
 ) => {
     const animate = () => {
-        circle.x += (mouse.x - circle.x) * speed;
-        circle.y += (mouse.y - circle.y) * speed;
+        cursorPosition.x += (curMousePosition.x - cursorPosition.x) * speed;
+        cursorPosition.y += (curMousePosition.y - cursorPosition.y) * speed;
 
-        const deltaX = mouse.x - previousMouse.x;
-        const deltaY = mouse.y - previousMouse.y;
-        const deltaX2 = mouse.x - circle.x;
-        const deltaY2 = mouse.y - circle.y;
-        previousMouse.x = mouse.x;
-        previousMouse.y = mouse.y;
+        const deltaX = curMousePosition.x - prevMousePosition.x;
+        const deltaY = curMousePosition.y - prevMousePosition.y;
+        const deltaX2 = curMousePosition.x - cursorPosition.x;
+        const deltaY2 = curMousePosition.y - cursorPosition.y;
+        prevMousePosition.x = curMousePosition.x;
+        prevMousePosition.y = curMousePosition.y;
         const mouseSpeed = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2) * 4, 150);
         const scaleValue = (mouseSpeed / 150) * 0.5;
         currentScale += (scaleValue - currentScale) * speed;
@@ -46,8 +46,8 @@ export const tick = (
         const height = cursor.offsetHeight;
         if (cursor) {
             cursor.style.transform = `${rotateTransform} ${scaleTransform}`;
-            const top = circle.y - height / 2;
-            const left = circle.x - width / 2;
+            const top = cursorPosition.y - height / 2;
+            const left = cursorPosition.x - width / 2;
             cursor.style.top = `${top}px`;
             cursor.style.left = `${left}px`;
         }

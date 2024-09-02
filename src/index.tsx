@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactNode, CSSProperties } from "react";
 import { handleMouseOut, handleMouseEnter, handleMouseMove, tick } from "./cursorUtils";
-// import {useMouseSpeed, useMouseRotation} from "./hooks/mouseSpeed";
+// import {useMouseSpeed} from "./hooks/mouseSpeed";
 
 type CustomCursorProps = {
     children?: ReactNode; // Define children prop type

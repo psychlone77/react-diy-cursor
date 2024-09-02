@@ -1,37 +1,43 @@
 // import { useState, useEffect, useRef } from "react";
 
-// const useMouseSpeed = (interval: number) => {
+// const useMouseSpeed = () => {
 //     // State to store mouse speed
 //     const [mouseSpeed, setMouseSpeed] = useState(0);
-//     let currentPosition = { x: 0, y: 0 };
-//     let prevPosition = { x: 0, y: 0 };
-//     let prevTime = Date.now();
+//     let curMousePosition = { x: 0, y: 0 };
+//     let prevMousePosition = { x: 0, y: 0 };
+//     console.log(mouseSpeed);
 //     // Effect to add mouse move event listener
 //     useEffect(() => {
 //         const updateCursorPosition = (e: MouseEvent) => {
-//             currentPosition = { x: e.clientX, y: e.clientY };
+//             curMousePosition = { x: e.clientX, y: e.clientY };
 //         };
 
-//         const intervalId = setInterval(() => {
-//             const deltaX = currentPosition.x - prevPosition.x;
-//             const deltaY = currentPosition.y - prevPosition.y;
-//             const distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
-//             const speed = distance / interval; // pixels per millisecond
-//             prevPosition = currentPosition;
-//             setMouseSpeed(speed);
-//         }, interval);
+//         const tick = () => {
+//             const tickHelper = () => {
+//                 const deltaX = curMousePosition.x - prevMousePosition.x;
+//                 const deltaY = curMousePosition.y - prevMousePosition.y;
+//                 prevMousePosition.x = curMousePosition.x;
+//                 prevMousePosition.y = curMousePosition.y;
+//                 const speedCalc = Math.min(Math.sqrt(deltaX ** 2 + deltaY ** 2), 150);
+//                 setMouseSpeed(speedCalc);
+//                 window.requestAnimationFrame(tickHelper);
+//             };
+//             window.requestAnimationFrame(tickHelper);
+//         };
+//         tick();
 
-//         window.addEventListener("mousemove", updateCursorPosition);
+//         // window.addEventListener("mousemove", updateCursorPosition);
 
 //         // Cleanup function to remove event listener when component unmounts
 //         return () => {
 //             window.removeEventListener("mousemove", updateCursorPosition);
-//             clearInterval(intervalId);
 //         };
 //     }, []);
 
 //     return mouseSpeed;
 // };
+
+// export {useMouseSpeed};
 
 // const useMouseRotation = (interval: number) => {
 //     const [mouseRotation, setMouseRotation] = useState(0);
@@ -71,4 +77,3 @@
 // };
 
 // export { useMouseSpeed, useMouseRotation };
-
