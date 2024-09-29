@@ -34,7 +34,7 @@ const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Elemen
 
         window.addEventListener("mousemove", handleMouseMove);
 
-        const speed = 0.17;
+        const speed = 0.12;
         const tick = () => {
             circle.x += (mouse.x - circle.x) * speed;
             circle.y += (mouse.y - circle.y) * speed;
