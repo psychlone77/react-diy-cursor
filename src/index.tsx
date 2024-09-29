@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ReactNode, CSSProperties } from "react";
-// import {useMouseSpeed, useMouseRotation} from "./hooks/mouseSpeed";
+import { handleMouseOut, handleMouseEnter, handleMouseMove, tick } from "./cursorUtils";
+// import {useMouseSpeed} from "./hooks/mouseSpeed";
 
 type CustomCursorProps = {
     children?: ReactNode; // Define children prop type
@@ -7,30 +8,15 @@ type CustomCursorProps = {
 };
 
 const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Element => {
-    // const [cursor, setCursor] = useState<HTMLElement | null>(null);
     const [isCursorVisible, setIsCursorVisible] = useState(true);
-    const mouse = { x: 0, y: 0 };
-    const previousMouse = { x: 0, y: 0 };
-    const circle = { x: 0, y: 0 };
+    const curMousePosition = { x: 0, y: 0 };
+    const prevMousePosition = { x: 0, y: 0 };
+    const cursorPosition = { x: 0, y: 0 };
     let currentScale = 0; // Track current scale value
     let currentAngle = 0; // Track current angle value
 
     useEffect(() => {
-        const handleMouseOut = (e: MouseEvent) => {
-            if (!e.relatedTarget) {
-                setIsCursorVisible(false);
-            }
-        };
-        const handleMouseEnter = () => {
-            setIsCursorVisible(true);
-        };
         const cursor = document.querySelector(".react-diy-cursor") as HTMLElement;
-        // setCursor(cursorElement);
-
-        const handleMouseMove = (event: MouseEvent) => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-        };
 
         window.addEventListener("mousemove", handleMouseMove);
 
@@ -80,9 +66,9 @@ const CustomCursor = ({ children, customStyles }: CustomCursorProps): JSX.Elemen
 
         // Cleanup function to remove event listener when component unmounts
         return () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseout", handleMouseOut);
-            document.removeEventListener("mouseover", handleMouseEnter);
+            window.removeEventListener("mousemove", handleMouseMove(curMousePosition));
+            document.removeEventListener("mouseout", handleMouseOut(setIsCursorVisible));
+            document.removeEventListener("mouseover", handleMouseEnter(setIsCursorVisible));
         };
     }, []);
 
