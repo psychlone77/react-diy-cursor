@@ -78,16 +78,30 @@
     **Note**: The path should be relative to the location of your current project.
 
 3. **Import the Package in Your Project**
-    - In the React component or file where you want to use the DIY cursor, import the package at the top of the file:
-
-    ```javascript
-    import CustomCursor from 'react-diy-cursor';
-    ```
-
-4. **Compile Your Project**
-    - Finally, compile and run your project to see the DIY cursor in action:
-
-    ```bash
-    npm start
+    Here's an example of how to use the `CustomCursor` component in your React application:
+    
+    ```tsx
+    import React, { useState } from 'react';
+    import CustomCursor from './path-to-your-cloned-repo';
+    
+    const App = () => {
+    
+      const customStyles = {
+        backgroundColor: 'yellow',
+        borderRadius: '50%',
+        width: '20px',
+        height: '20px',
+      };
+    
+      return (
+        <div>
+          <CustomCursor customStyles={customStyles}>
+            <span>Custom Cursor Content</span>
+          </CustomCursor>
+        </div>
+      );
+    };
+    
+    export default App;
     ```
 
