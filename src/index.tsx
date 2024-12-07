@@ -30,7 +30,7 @@ const CustomCursor = ({ children, customStyles, parentElement }: CustomCursorPro
 
   return (
     <div className={uniqueClassName} style={cursorStyles}>
-      {children} {/* Render children passed to CustomCursor */}
+      {children}
     </div>
   );
 };
